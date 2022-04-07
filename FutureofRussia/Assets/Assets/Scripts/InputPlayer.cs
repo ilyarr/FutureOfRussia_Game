@@ -11,8 +11,11 @@ public class InputPlayer : MonoBehaviour
     private void Update()
     {
         float HorizontalMovement = Input.GetAxis(StringConstants.HORIZONTAL_AXIS);
-        bool IsJump = Input.GetButtonDown(StringConstants.JUMP);
-        movement.Move(HorizontalMovement, IsJump);
+        bool JumpIs = Input.GetButtonDown(StringConstants.JUMP);
+        movement.Move(HorizontalMovement, JumpIs);
+
+        //movement.anim.SetBool("isJump", false);
+
         movement.anim.SetBool("isRun", Mathf.Abs(HorizontalMovement)>0f);
 
     }

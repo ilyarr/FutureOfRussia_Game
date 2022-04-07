@@ -30,19 +30,19 @@ public class MovementPlayer : MonoBehaviour
     public void Move(float direction, bool Jumpis)
     {
         if (Jumpis)
-        {
-            anim.SetBool("isJump", true);
+        {            
             Jump();
         }
         if (Mathf.Abs(direction) > 0.01f)
         {
             HorizontalMovement(direction);
         }
+        anim.SetBool("isJump", !isGround);
     }
     private void Jump()
     {
         if (isGround)
-        {            
+        {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
